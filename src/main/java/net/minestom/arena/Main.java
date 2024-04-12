@@ -152,6 +152,6 @@ final class Main {
         }
 
         minecraftServer.start(CONFIG.server().address());
-        System.out.println("Server startup done! Using configuration " + CONFIG);
+        LOGGER.info("Server startup done! Using configuration " + CONFIG);
     }
 }
