@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     // Minestom
-    implementation("net.minestom:minestom-snapshots:7320437640")
+    implementation("net.minestom:minestom-snapshots:7daf8d69b7")
 
     // Randomness
     implementation("de.articdive:jnoise-pipeline:4.1.0")

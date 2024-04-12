@@ -39,8 +39,8 @@ import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
+import net.minestom.server.network.packet.server.play.ParticlePacket;
 import net.minestom.server.particle.Particle;
-import net.minestom.server.particle.ParticleCreator;
 import net.minestom.server.sound.SoundEvent;
 import net.minestom.server.tag.Tag;
 import net.minestom.server.timer.TaskSchedule;
@@ -605,10 +605,9 @@ public final class MobArena implements SingleInstanceArena {
                             return TaskSchedule.stop();
                         }
 
-                        instance.sendGroupedPacket(ParticleCreator.createParticlePacket(
-                                Particle.FIREWORK, true, pos.x(), pos.y(), pos.z(),
-                                0.3f, 0.3f, 0.3f, 0.01f, 50, null
-                        ));
+                        instance.sendGroupedPacket(new ParticlePacket(Particle.FIREWORK, pos.x(), pos.y(), pos.z(),
+                                0.3f, 0.3f, 0.3f, 0.01f, 50));
+
                         instance.playSound(
                                 Sound.sound(SoundEvent.ENTITY_AXOLOTL_SWIM, Sound.Source.NEUTRAL, 1, 1),
                                 pos.x(), pos.y(), pos.z()
@@ -642,10 +641,9 @@ public final class MobArena implements SingleInstanceArena {
     }
 
     private static void explosion(DamageType damageType, Instance instance, Pos pos, int range, float offset, int damage, float volume) {
-        instance.sendGroupedPacket(ParticleCreator.createParticlePacket(
-                Particle.EXPLOSION, pos.x(), pos.y(), pos.z(),
-                offset, offset, offset, 5
-        ));
+        instance.sendGroupedPacket(new ParticlePacket(Particle.EXPLOSION, pos.x(), pos.y(), pos.z(),
+                offset, offset, offset, 0.01f, 5));
+
         instance.playSound(
                 Sound.sound(SoundEvent.ENTITY_GENERIC_EXPLODE, Sound.Source.NEUTRAL, volume, 1),
                 pos.x(), pos.y(), pos.z()
