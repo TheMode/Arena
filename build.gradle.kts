@@ -24,7 +24,7 @@ dependencies {
     implementation("net.minestom:minestom-snapshots:7320437640")
 
     // Randomness
-    implementation("de.articdive:jnoise-pipeline:4.0.0")
+    implementation("de.articdive:jnoise-pipeline:4.1.0")
 
     // Prometheus - logging
     implementation("io.prometheus:simpleclient:0.16.0")
@@ -32,10 +32,10 @@ dependencies {
     implementation("io.prometheus:simpleclient_httpserver:0.16.0")
 
     // Adventure
-    implementation("net.kyori:adventure-text-minimessage:4.12.0")
+    implementation("net.kyori:adventure-text-minimessage:4.16.0")
 
     // Logger
-    implementation("ch.qos.logback:logback-classic:1.4.14")
+    implementation("ch.qos.logback:logback-classic:1.5.2")
 }
 
 tasks.withType<JavaCompile> {
