@@ -83,7 +83,7 @@ public final class MobTestCommand extends Command {
                         .set(MobArena.MELEE_TAG, 10000).build()
         ), strong);
 
-        addSyntax((sender, context) -> ((Player) sender).damage(DamageType.VOID, 10), damageme);
+        addSyntax((sender, context) -> ((Player) sender).damage(DamageType.OUT_OF_WORLD, 10), damageme);
     }
 
     private static @NotNull Optional<MobArena> arena(CommandSender sender) {

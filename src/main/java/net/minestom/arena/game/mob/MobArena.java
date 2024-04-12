@@ -27,7 +27,7 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.coordinate.Vec;
 import net.minestom.server.entity.*;
 import net.minestom.server.entity.damage.DamageType;
-import net.minestom.server.entity.metadata.arrow.ArrowMeta;
+import net.minestom.server.entity.metadata.projectile.ArrowMeta;
 import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.entity.EntityDeathEvent;
 import net.minestom.server.event.entity.projectile.ProjectileCollideWithEntityEvent;
@@ -600,7 +600,7 @@ public final class MobArena implements SingleInstanceArena {
                                 !instance.getWorldBorder().isInside(pos) ||
                                 age >= 30) {
 
-                            explosion(DamageType.fromPlayer(player), instance, pos, 5, 0.5f, 7, 1);
+                            explosion(DamageType.MOB_ATTACK, instance, pos, 5, 0.5f, 7, 1);
 
                             return TaskSchedule.stop();
                         }
@@ -627,14 +627,14 @@ public final class MobArena implements SingleInstanceArena {
 
                 final Instance instance = event.getInstance();
                 final Pos pos = target.getPosition();
-                explosion(DamageType.fromProjectile(shooter, projectile), instance, pos, 6, 1, 7, 0.3f);
+                explosion(DamageType.MOB_PROJECTILE, instance, pos, 6, 1, 7, 0.3f);
             }).addListener(EntityAttackEvent.class, event -> {
                 if (!(event.getEntity() instanceof Player player)) return;
                 if (!(event.getTarget() instanceof LivingEntity target)) return;
 
                 final Instance instance = event.getInstance();
                 final Pos pos = target.getPosition();
-                explosion(DamageType.fromPlayer(player), instance, pos, 3, 1f, 3, 0.3f);
+                explosion(DamageType.MOB_ATTACK, instance, pos, 3, 1f, 3, 0.3f);
             }));
         }
 
