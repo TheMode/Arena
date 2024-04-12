@@ -151,7 +151,7 @@ final class NPC extends EntityCreature {
             return List.of(
                     new NPC("Discord", skins.get("Discord"), instance, new Pos(8.5, 15, 8.5),
                             player -> Messenger.info(player, Component.text("Click here to join the Discord server")
-                                    .clickEvent(ClickEvent.openUrl("https://discord.gg/minestom")))),
+                                    .clickEvent(ClickEvent.openUrl("https://minestom.net/discord")))),
                     new NPC("Website", skins.get("Website"), instance, new Pos(-7.5, 15, 8.5),
                             player -> Messenger.info(player, Component.text("Click here to go to the Minestom website")
                                     .clickEvent(ClickEvent.openUrl("https://minestom.net")))),
