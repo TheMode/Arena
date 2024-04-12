@@ -20,12 +20,22 @@ repositories {
 }
 
 dependencies {
+    // Minestom
     implementation("net.minestom:minestom-snapshots:7320437640")
+
+    // Randomness
     implementation("de.articdive:jnoise-pipeline:4.0.0")
+
+    // Prometheus - logging
     implementation("io.prometheus:simpleclient:0.16.0")
     implementation("io.prometheus:simpleclient_hotspot:0.16.0")
     implementation("io.prometheus:simpleclient_httpserver:0.16.0")
+
+    // Adventure
     implementation("net.kyori:adventure-text-minimessage:4.12.0")
+
+    // Logger
+    implementation("ch.qos.logback:logback-classic:1.4.14")
 }
 
 tasks.withType<JavaCompile> {
