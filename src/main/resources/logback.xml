@@ -1,0 +1,14 @@
+<configuration>
+
+    <conversionRule conversionWord="highlightex" converterClass="net.minestom.arena.utils.LogbackHighlightConfig"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} %highlightex([%level]): %highlightex(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

@@ -16,9 +16,9 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
+import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerChatEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
-import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.event.server.ServerTickMonitorEvent;
 import net.minestom.server.extras.MojangAuth;
@@ -69,7 +69,7 @@ final class Main {
             ServerList.hook(handler);
 
             // Login
-            handler.addListener(PlayerLoginEvent.class, event -> {
+            handler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
                 final Player player = event.getPlayer();
                 event.setSpawningInstance(Lobby.INSTANCE);
                 player.setRespawnPoint(new Pos(0.5, 16, 0.5));
@@ -152,6 +152,6 @@ final class Main {
         }
 
         minecraftServer.start(CONFIG.server().address());
-        System.out.println("Server startup done! Using configuration " + CONFIG);
+        LOGGER.info("Server startup done! Using configuration " + CONFIG);
     }
 }

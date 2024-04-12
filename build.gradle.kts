@@ -2,7 +2,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     id("java")
-    id("com.github.johnrengelman.shadow") version "7.1.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 tasks {
@@ -20,12 +20,22 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.Minestom:Minestom:cb3892255e")
-    implementation("de.articdive:jnoise-pipeline:4.0.0")
+    // Minestom
+    implementation("net.minestom:minestom-snapshots:7daf8d69b7")
+
+    // Randomness
+    implementation("de.articdive:jnoise-pipeline:4.1.0")
+
+    // Prometheus - logging
     implementation("io.prometheus:simpleclient:0.16.0")
     implementation("io.prometheus:simpleclient_hotspot:0.16.0")
     implementation("io.prometheus:simpleclient_httpserver:0.16.0")
-    implementation("net.kyori:adventure-text-minimessage:4.12.0")
+
+    // Adventure
+    implementation("net.kyori:adventure-text-minimessage:4.16.0")
+
+    // Logger
+    implementation("ch.qos.logback:logback-classic:1.5.2")
 }
 
 tasks.withType<JavaCompile> {
